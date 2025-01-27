@@ -1,0 +1,18 @@
+This Python script processes data from two CSV files, combining and analyzing them to extract key price statistics for different quarters and types of flight classes.
+
+Data Import: The script first reads two CSV files (df1 and df2) containing flight-related data using pandas.
+
+Data Concatenation: It then combines these two DataFrames into one (unioned_df) by concatenating them vertically.
+
+Date Processing: The Date column is converted into a datetime format, and the script extracts the quarter from each date and adds it as a new column, Quarter.
+
+Price Analysis: The script defines three functions to calculate:
+
+Median Price: Groups data by Quarter, Flow Card?, and Class, then calculates the median price for each group.
+Max Price: Similarly, it calculates the maximum price per group.
+Min Price: Calculates the minimum price per group.
+Pivoting: For each of the three statistics (median, max, min), the data is pivoted so that the Class values are spread into separate columns, making it easier to compare the prices for each class.
+
+Union and Renaming: The script then concatenates the results of the median, max, and min statistics into a single DataFrame (unioned_results). It also renames the class columns to standardized labels, e.g., "Economy" to "First," "First Class" to "Economy," etc.
+
+Export: Finally, the processed data is saved to a new CSV file at the specified output_path.
